@@ -10,8 +10,6 @@ const TopComponent: React.FC<any> = ({textU}) => {
           backgroundColor: "#00008B",
           justifyContent: "center",
           alignItems: "center",
-          borderBottomLeftRadius: 20,
-          borderBottomRightRadius: 20,
         }}
       >
         <Text style={{ color: "#FFDB51", fontSize: 18, fontWeight: "600" }}>
