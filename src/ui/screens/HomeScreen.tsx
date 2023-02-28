@@ -1,17 +1,27 @@
 import React from "react";
-import { StyleSheet, View, Text, Platform } from "react-native";
+import { StyleSheet, View, Text, Platform, TextInput } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import TopComponent from "../../components/TopComponent";
 import MainText from "../../components/mainText";
 import { app_name, bot_name } from "../../utills/constants";
+import MainButton from "../../components/MainButton";
 
 const HomeScreen: React.FC<any> = () => {
-  const [userName, setUserName] = React.useState<string>("ekene");
+  const [userName, setUserName] = React.useState<string>("");
+  console.log(userName)
+  const [welcomeMes, setWelcomeMes] = React.useState<string>("");
 
+  function changeWelcomeMessage() {
+    if (userName === "") {
+      return "Hi There,";
+    } else {
+      return "Hello,";
+    }
+  }
   const noName = (
     <View>
       <MainText
-        children={`Welcome to ${app_name}. I am ${bot_name}! ${app_name} is designed to help you automate your username and password.`}
+        children={`Welcome to ${app_name}. I am ${bot_name}! ${app_name} is designed to simply help you automate your username and password.`}
         style={{
           color: "#000000",
           fontSize: 18,
@@ -40,7 +50,7 @@ const HomeScreen: React.FC<any> = () => {
   const nameExist = (
     <View>
       <MainText
-        children={`It is really good to meet you, ${userName}. We are going to have so much FUN`}
+        children={`It is really good to meet you. We are going to have so much FUN!`}
         style={{ color: "#000000", fontSize: 18, fontWeight: "200" }}
       />
     </View>
@@ -48,13 +58,19 @@ const HomeScreen: React.FC<any> = () => {
 
   function mainViewS() {
     if (userName === "") {
-      return noName
+      return noName;
     } else {
-      return nameExist
+      return nameExist;
     }
   }
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#ffffff" }}>
+    <SafeAreaView
+      style={{
+        flex: 1,
+        backgroundColor: "#ffffff",
+        justifyContent: "space-between",
+      }}
+    >
       <View
         style={[
           styles.homeWelcomeCon,
@@ -64,7 +80,7 @@ const HomeScreen: React.FC<any> = () => {
         ]}
       >
         <MainText
-          children={`Hi there, ${userName}`}
+          children={`${changeWelcomeMessage()} ${userName}`}
           style={{
             color: "#000000",
             fontSize: 23,
@@ -74,6 +90,24 @@ const HomeScreen: React.FC<any> = () => {
         />
 
         {mainViewS()}
+      </View>
+      <View>
+        <TextInput
+          placeholder="First Name"
+          style={{
+            alignSelf: "center",
+            paddingBottom: 100,
+            fontSize: 18,
+            fontWeight: "400",
+          }}
+          onChangeText={(value) => setUserName(value)}
+        />
+        <MainButton
+          title="What is your Name?"
+          // disabled={true}
+          // onPressFunction={}
+          // redOutlineWhiteBg={}
+        />
       </View>
     </SafeAreaView>
   );
