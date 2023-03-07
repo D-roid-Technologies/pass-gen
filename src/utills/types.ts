@@ -6,8 +6,6 @@ export interface TextType extends TextProps {
 export interface MainButtonContainer {
     title: string,
     disabled?: boolean,
-    // whiteStyling?: boolean,
-    // style: any, 
     onPressFunction?: any,
     redOutlineWhiteBg?: boolean,
 
