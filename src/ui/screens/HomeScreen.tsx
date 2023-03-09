@@ -185,7 +185,7 @@ const HomeScreen: React.FC<any> = ({ navigation }) => {
       {finalButtons ? (
         <View>
           <MainButton
-            title="Set Unique User Name"
+            title="Generate Unique User Name"
             // disabled={true}
             onPressFunction={() => {
               setHideView(true);
@@ -196,7 +196,7 @@ const HomeScreen: React.FC<any> = ({ navigation }) => {
             // redOutlineWhiteBg={}
           />
           <MainButton
-            title="Set Unique Password"
+            title="Generate Unique Password"
             // disabled={true}
             onPressFunction={() => {
               setHideView(true);
