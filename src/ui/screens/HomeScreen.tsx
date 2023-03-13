@@ -113,7 +113,7 @@ const HomeScreen: React.FC<any> = ({ navigation }) => {
             ? styles.homeWelConAndroid
             : styles.homeWelConIos,
         ]}
-      >
+        >
         <MainText
           children={`${changeWelcomeMessage()} ${userName}`}
           style={{
